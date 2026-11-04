@@ -24,3 +24,19 @@ USD.
 Comparer chaque VaR aux pertes réelles du lendemain.
 Sur 250 jours, on attend environ 2 à 3 dépassements à 99 %.
 Pour les options, vérifier les prix du modèle avec des cas simples et des résultats de référence.
+
+## Portefeuille fictif
+Valeur : 1 000 000 USD.
+
+| Actif | Ticker | Poids |
+|---|---|---|
+| S&P 500 | SPY | 25 % |
+| TSMC | TSM | 15 % |
+| BNP Paribas | BNP.PA | 15 % |
+| Or | GLD | 15 % |
+| Tencent | 0700.HK | 10 % |
+| Exxon | XOM | 10 % |
+| Nestlé | NESN.SW | 10 % |
+
+Couverture de change : vente de 150 000 USD d'équivalent EUR contre USD (EURUSD=X),
+hors carry dans la V1.
