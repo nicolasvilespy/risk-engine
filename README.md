@@ -47,3 +47,11 @@ hors carry dans la V1.
 - Seules les dates où tous les marchés ont un prix sont conservées.
 - Limite : un rendement peut donc couvrir plusieurs jours de marché.
 - Limite : les clôtures ont lieu à des heures différentes selon les marchés.
+
+### Expected Shortfall
+ES historique sur 1 jour, sur environ 10 ans de données, avec la convention <= pour la queue :
+- 95 % : 22 171 USD
+- 97,5 % : 27 939 USD
+- 99 % : 38 115 USD
+
+12 des 26 journées sous la VaR à 99 % ont eu lieu en 2020 : les pertes extrêmes sont regroupées dans le temps.
