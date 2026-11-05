@@ -40,3 +40,10 @@ Valeur : 1 000 000 USD.
 
 Couverture de change : vente de 150 000 USD d'équivalent EUR contre USD (EURUSD=X),
 hors carry dans la V1.
+
+## Données et hypothèses
+- Source : Yahoo Finance, prix de clôture ajustés.
+- Les prix sont convertis en USD avant le calcul des rendements.
+- Seules les dates où tous les marchés ont un prix sont conservées.
+- Limite : un rendement peut donc couvrir plusieurs jours de marché.
+- Limite : les clôtures ont lieu à des heures différentes selon les marchés.
