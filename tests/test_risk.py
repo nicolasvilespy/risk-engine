@@ -3,6 +3,7 @@ import pytest
 
 from risk_engine.risk import historical_var, historical_es
 from risk_engine.data import convert_to_usd
+from risk_engine.portfolio import compute_portfolio_returns, compute_returns
 
 returns = pd.Series([-0.04, -0.02, -0.01, 0.01, 0.03])
 returns_2 = pd.Series([-0.05, -0.03, -0.02, -0.01, -0.005, 0, 0.005, 0.01, 0.02, 0.03])
@@ -36,3 +37,21 @@ def test_conversion():
     test_prices = pd.DataFrame({"AAA": [10.0], "EURUSD=X": [1.2]})
     result = convert_to_usd(test_prices, {"AAA": "EURUSD=X"})
     assert result["AAA"].iloc[0] == pytest.approx(12)
+
+def test_portfolio():
+    returns = pd.DataFrame({"AAA": [0.01, -0.02], "BBB": [0.03, 0.01]})
+    weights = pd.Series({"AAA": 0.6, "BBB": 0.4})
+    result = compute_portfolio_returns(returns, weights)
+    assert result.tolist() == pytest.approx([0.018, -0.008])
+
+def test_return():
+   test_prices = pd.DataFrame({"AAA": [100, 110, 121]})
+   result = compute_returns(test_prices)
+   assert result["AAA"].tolist() == pytest.approx([0.1, 0.1])
+
+def test_return_nan():
+    test_prices = pd.DataFrame({"AAA": [100.0, 110.0, 121.0],"BBB": [100.0, float("nan"), 110.0],})
+    result = compute_returns(test_prices)
+    assert len(result) == 1
+    assert result["AAA"].tolist() == pytest.approx([0.21])
+    assert result["BBB"].tolist() == pytest.approx([0.1])

@@ -55,3 +55,19 @@ ES historique sur 1 jour, sur environ 10 ans de données, avec la convention <= 
 - 99 % : 38 115 USD
 
 12 des 26 journées sous la VaR à 99 % ont eu lieu en 2020 : les pertes extrêmes sont regroupées dans le temps.
+
+## Utilisation
+Installer les dépendances :
+```bash
+python -m pip install -r requirements.txt
+```
+
+Lancer le calcul :
+```bash
+python main.py
+```
+
+Lancer les tests :
+```bash
+python -m pytest
+```
